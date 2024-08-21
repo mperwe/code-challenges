@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FizzBuzz Function Example</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 10px;
+        }
+        .result {
+            font-weight: bold;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+    <h1>FizzBuzz Function Output</h1>
+    <p id="result" class="result"></p>
+
+    <script>
+        function fizzBuzz(str1, str2) {
+            // Combine the two input strings
+            const combinedString = str1 + str2;
+
+            // Get the length of the combined string
+            const length = combinedString.length;
+
+            // Check divisibility and return the appropriate result
+            if (length % 3 === 0 && length % 5 === 0) {
+                return 'FizzBuzz';
+            } else if (length % 3 === 0) {
+                return 'Fizz';
+            } else if (length % 5 === 0) {
+                return 'Buzz';
+            } else {
+                return ''; // Return an empty string if none of the conditions are met
+            }
+        }
+
+        // Example usage
+        const str1 = "Hello";
+        const str2 = "World";
+        const result = fizzBuzz(str1, str2);
+
+        // Display the result in the HTML
+        document.getElementById('result').textContent = `The result of fizzBuzz("${str1}", "${str2}") is: ${result}`;
+    </script>
+</body>
+</html>
