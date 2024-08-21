@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Age Classification</title>
+    <script>
+        function classifyUser() {
+            // Get the current year
+            const currentYear = new Date().getFullYear();
+
+            // Get the user's year of birth from the input field
+            const yearOfBirth = parseInt(document.getElementById("yearOfBirth").value, 10);
+
+            // Check if the entered year is a valid number
+            if (isNaN(yearOfBirth) || yearOfBirth <= 0) {
+                document.getElementById("result").innerText = "Invalid year of birth entered.";
+                return;
+            }
+
+            // Calculate the user's age
+            const age = currentYear - yearOfBirth;
+
+            // Classify the user based on their age
+            let classification;
+
+            if (age < 18) {
+                classification = "minor";
+            } else if (age >= 18 && age <= 36) {
+                classification = "youth";
+            } else {
+                classification = "elder";
+            }
+
+            // Display the classification
+            document.getElementById("result").innerText = `You are classified as a(n) ${classification}.`;
+        }
+    </script>
+</head>
+<body>
+    <h1>Age Classification</h1>
+    <p>Enter your year of birth to find out your classification.</p>
+
+    <label for="yearOfBirth">Year of Birth:</label>
+    <input type="number" id="yearOfBirth" placeholder="Enter your year of birth"><br><br>
+
+    <button onclick="classifyUser()">Classify Me</button>
+
+    <p id="result"></p>
+</body>
+</html>

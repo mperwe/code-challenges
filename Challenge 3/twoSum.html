@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Two Sum</title>
+    <script>
+        function twoSum(nums, target) {
+            const numIndices = new Map();
+
+            for (let i = 0; i < nums.length; i++) {
+                const complement = target - nums[i];
+
+                if (numIndices.has(complement)) {
+                    return [numIndices.get(complement), i];
+                }
+
+                numIndices.set(nums[i], i);
+            }
+
+            return [];
+        }
+
+        function displayResult() {
+            const numsInput = document.getElementById("nums").value;
+            const target = parseInt(document.getElementById("target").value, 10);
+
+            // Convert the input string to an array of numbers
+            const nums = numsInput.split(',').map(Number);
+            
+            const result = twoSum(nums, target);
+            
+            if (result.length > 0) {
+                document.getElementById("result").innerText = "Indices: [" + result.join(", ") + "]";
+            } else {
+                document.getElementById("result").innerText = "No valid indices found!";
+            }
+        }
+    </script>
+</head>
+<body>
+    <h1>Two Sum Function</h1>
+    <p>Enter an array of numbers and a target value to find the indices of the two numbers that add up to the target.</p>
+
+    <label for="nums">Numbers (comma-separated):</label>
+    <input type="text" id="nums" placeholder="e.g., 2, 7, 11, 15"><br><br>
+
+    <label for="target">Target:</label>
+    <input type="number" id="target" placeholder="Enter target value"><br><br>
+
+    <button onclick="displayResult()">Find Indices</button>
+
+    <p id="result"></p>
+</body>
+</html>
