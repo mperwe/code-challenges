@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Digits</title>
+    <script>
+        function addDigits(num) {
+            while (num >= 10) {
+                let sum = 0;
+                while (num > 0) {
+                    sum += num % 10;
+                    num = Math.floor(num / 10);
+                }
+                num = sum;
+            }
+            return num;
+        }
+
+        function displayResult() {
+            const inputNum = document.getElementById("inputNum").value;
+            const result = addDigits(Number(inputNum));
+            document.getElementById("result").innerText = "Result: " + result;
+        }
+    </script>
+</head>
+<body>
+    <h1>Add Digits Function</h1>
+    <p>Enter a number and see the result of the addDigits function:</p>
+
+    <input type="number" id="inputNum" placeholder="Enter a number">
+    <button onclick="displayResult()">Calculate</button>
+
+    <p id="result"></p>
+</body>
+</html>

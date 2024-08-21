@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Palindrome Checker</title>
+</head>
+<body>
+    <h1>Palindrome Checker</h1>
+
+    <p>Enter words separated by commas:</p>
+    <input type="text" id="wordInput" value="abc, car, ada, racecar, cool">
+    <button onclick="checkPalindrome()">Check Palindrome</button>
+
+    <p id="result"></p>
+
+    <script>
+        function isPalindrome(s) {
+            const characters = s.split('');
+            const reversedCharacters = characters.slice().reverse();
+            const reversedString = reversedCharacters.join('');
+            return s === reversedString;
+        }
+
+        function firstPalindrome(words) {
+            for (let word of words) {
+                if (isPalindrome(word.trim())) {
+                    return word.trim();
+                }
+            }
+            return "";
+        }
+
+        function checkPalindrome() {
+            const input = document.getElementById('wordInput').value;
+            const words = input.split(',');
+            const palindrome = firstPalindrome(words);
+            const resultElement = document.getElementById('result');
+
+            if (palindrome) {
+                resultElement.textContent = `First palindrome found: ${palindrome}`;
+            } else {
+                resultElement.textContent = "No palindrome found.";
+            }
+        }
+    </script>
+</body>
+</html>

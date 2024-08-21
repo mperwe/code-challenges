@@ -20,6 +20,4 @@ function firstPalindrome(words) {
 }
 
 // Example usage
-const wordList = ["abc", "car","ada","racecar", "cool"];
-const result = firstPalindrome(wordList);
-console.log(result);
+const wordList = ["abc", "car","ada","racecar", "cool"];clea
