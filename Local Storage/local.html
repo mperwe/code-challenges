@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Meta tags for character encoding and responsive design -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- Title of the webpage -->
+    <title>Web Storage Example</title>
+
+    <!-- Basic CSS styling for the page -->
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        input, button {
+            display: block;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Main heading of the page -->
+    <h1>Web Storage Example</h1>
+
+    <!-- Section for demonstrating Local Storage -->
+    <h2>Local Storage</h2>
+    <!-- Input field for entering data to store in Local Storage -->
+    <input type="text" id="local-input" placeholder="Enter data for localStorage">
+    <!-- Button to trigger saving data to Local Storage -->
+    <button onclick="saveLocalStorage()">Save to localStorage</button>
+    <!-- Button to trigger loading data from Local Storage -->
+    <button onclick="loadLocalStorage()">Load from localStorage</button>
+    <!-- Paragraph to display data loaded from Local Storage -->
+    <p id="local-output"></p>
+
+    <!-- Section for demonstrating Session Storage -->
+    <h2>Session Storage</h2>
+
+    <!-- Input field for entering data to store in Session Storage -->
+    <input type="text" id="session-input" placeholder="Enter data for sessionStorage">
+
+    <!-- Button to trigger saving data to Session Storage -->
+    <button onclick="saveSessionStorage()">Save to sessionStorage</button>
+
+    <!-- Button to trigger loading data from Session Storage -->
+    <button onclick="loadSessionStorage()">Load from sessionStorage</button>
+
+    <!-- Paragraph to display data loaded from Session Storage -->
+    <p id="session-output"></p>
+
+    <!-- JavaScript functions to handle storage operations -->
+    <script>
+        // Function to save data to Local Storage
+        function saveLocalStorage() {
+            
+            // Get the value from the input field
+            const localInput = document.getElementById('local-input').value;
+            
+            // Save the value to Local Storage with the key 'localData'
+            localStorage.setItem('localData', localInput);
+            
+            // Notify the user that the data was saved
+            alert('Data saved to localStorage');
+        }
+
+        // Function to load data from Local Storage
+        function loadLocalStorage() {
+           
+            // Retrieve the value from Local Storage using the key 'localData'
+            const localData = localStorage.getItem('localData');
+            // Display the retrieved data in the paragraph element, or a default message if no data is found
+            document.getElementById('local-output').textContent = localData ? localData : 'No data found in localStorage';
+        }
+
+        // Function to save data to Session Storage
+        function saveSessionStorage() {
+            
+            // Get the value from the input field
+            const sessionInput = document.getElementById('session-input').value;
+            // Save the value to Session Storage with the key 'sessionData'
+            sessionStorage.setItem('sessionData', sessionInput);
+            // Notify the user that the data was saved
+            alert('Data saved to sessionStorage');
+        }
+
+        // Function to load data from Session Storage
+        function loadSessionStorage() {
+            // Retrieve the value from Session Storage using the key 'sessionData'
+            const sessionData = sessionStorage.getItem('sessionData');
+            // Display the retrieved data in the paragraph element, or a default message if no data is found
+            document.getElementById('session-output').textContent = sessionData ? sessionData : 'No data found in sessionStorage';
+        }
+    </script>
+</body>
+
+</html>
